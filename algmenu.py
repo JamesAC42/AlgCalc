@@ -24,13 +24,13 @@ def runpro(program):
 	return
 
 button_font = ('System', 12)
-simpleCalc = Button(menuframe,text="Simple\n Calculator",command=runpro("simple"),borderwidth=5,width=20,bg="#8cb3d9")
+simpleCalc = Button(menuframe,text="Simple\n Calculator",command=lambda:runpro("simple"),borderwidth=5,width=21,bg="#8cb3d9")
 simpleCalc.grid(row=0,column=0)
 
-circleGraph = Button(menuframe,text="Circle\n Graph",command=runpro("circleGraph"),borderwidth=5,width=20,bg="#8cb3d9")
+circleGraph = Button(menuframe,text="Circle\n Graph",command=lambda:runpro("circleGraph"),borderwidth=5,width=21,bg="#8cb3d9")
 circleGraph.grid(row=0,column=1)
 
-quadForm = Button(menuframe,text="Quad.\n Form.",command=runpro("quadForm"),borderwidth=5,width=20,bg="#8cb3d9")
+quadForm = Button(menuframe,text="Quad.\n Form.",command=lambda:runpro("quadForm"),borderwidth=5,width=21,bg="#8cb3d9")
 quadForm.grid(row=0,column=2)
 
 root.mainloop()

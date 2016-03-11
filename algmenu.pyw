@@ -20,7 +20,7 @@ author = Label(titleframe,text="James Crovo",\
 author.grid(row=1,column=0,columnspan=3)
 
 def runpro(program):
-	os.system("py {}.pyw".format(program))
+	os.system("pyw {}.pyw".format(program))
 	return
 
 button_font = ('System', 12)

@@ -24,17 +24,17 @@ input_font = ("Courier",13)
 
 a_label = Label(input_frame,text="A:",borderwidth=0,font=label_font,anchor="e")
 a_label.grid(row=0,column=0)
-a_input = Entry(input_frame,borderwidth=0,font=input_font,width=10)
+a_input = Entry(input_frame,borderwidth=3,font=input_font,relief="sunk",width=10)
 a_input.grid(row=0,column=1)
 
 b_label = Label(input_frame,text="B:",borderwidth=0,font=label_font,anchor="e")
 b_label.grid(row=0,column=2)
-b_input = Entry(input_frame,borderwidth=0,font=input_font,width=10)
+b_input = Entry(input_frame,borderwidth=3,font=input_font,relief="sunk",width=10)
 b_input.grid(row=0,column=3)
 
 c_label = Label(input_frame,text="C:",borderwidth=0,font=label_font,anchor="e")
 c_label.grid(row=0,column=4)
-c_input = Entry(input_frame,borderwidth=0,font=input_font,width=10)
+c_input = Entry(input_frame,borderwidth=3,font=input_font,relief="sunk",width=10)
 c_input.grid(row=0,column=5)
 
 root_one_frame = Frame(display_frame)
@@ -54,7 +54,7 @@ root_two_display = Label(root_two_frame,text="0",font=("Courier",14,"bold"),reli
 root_two_display.grid(row=1,column=0)
 
 def calculate():
-	if a_input.get() and b_input.get() and c_input.get():
+	if a_input.get() and b_input.get() and c_input.get() and a_input.get() != "0":
 		try:
 			a,b,c = int(a_input.get()), int(b_input.get()), int(c_input.get())
 		except ValueError:
@@ -66,11 +66,11 @@ def calculate():
 		
 		d = ((b**2) - (4*a*c))
 		if d < 0:
-			d = sqrt(-1*d)
+			d = round(sqrt(-1*d),3)
 			root_one = "({} + {})/({})".format((-1*b),(str(d)+"i"),(2*a))
 			root_two = "({} - {})/({})".format((-1*b),(str(d)+"i"),(2*a))
 		else:
-			d = sqrt(d)
+			d = round(sqrt(d),3)
 			root_one = str(((-1*b)+d)/(2*a))
 			root_two = str(((-1*b)-d)/(2*a))
 
@@ -82,7 +82,18 @@ def calculate():
 	else:
 		return
 
+def clear():
+	root_one_display.config(text="0")
+	root_two_display.config(text="0")
+	a_input.delete(0,"end")
+	b_input.delete(0,"end")
+	c_input.delete(0,"end")
+
+	return
+
 submit_button = Button(display_frame,text="SUBMIT",relief="raised",command=calculate,anchor="center")
-submit_button.grid(row=0,column=0,columnspan=2)
+submit_button.grid(row=0,column=0)
+clear_button = Button(display_frame,text="CLEAR",relief="raised",command=clear,anchor="center")
+clear_button.grid(row=0,column=1)
 
 root.mainloop()

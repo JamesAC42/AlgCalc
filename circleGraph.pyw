@@ -79,13 +79,13 @@ def calculate():
 		center = "({},{})".format((-1*half_a),(-1*half_b))
 		if c < 0:
 			c = (-1 * c)
-			radius = str(sqrt(c)) + " i"
+			radius = str(round(sqrt(c),4)) + " i"
 			is_circle = "False"
 		elif c == 0:
 			radius = "0"
 			is_circle = "False"
 		else:
-			radius = str(sqrt(c))
+			radius = str(round(sqrt(c),4))
 			is_circle = "True"
 		is_circle_display.config(text=is_circle)
 		radius_display.config(text=radius)

@@ -1,2 +1,2 @@
 # AlgCalc
-Various Calculator for Algebra 2
+Various Calculators for Algebra 2
